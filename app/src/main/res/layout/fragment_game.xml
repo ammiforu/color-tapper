@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple_200"
+    android:padding="16dp"
+    tools:context=".ui.GameFragment">
+
+    <TextView
+        android:id="@+id/score_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Score: 0"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/timer_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Time: 30s"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/score_text" />
+
+    <TextView
+        android:id="@+id/round_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Round: 1"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timer_text" />
+
+    <TextView
+        android:id="@+id/target_color_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Tap: Red"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/round_text" />
+
+    <View
+        android:id="@+id/target_color_view"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:background="#FF5722"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/target_color_text" />
+
+    <TextView
+        android:id="@+id/instruction_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
+        android:text="Tap only the tiles that match the target color!"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/target_color_view" />
+
+    <GridLayout
+        android:id="@+id/game_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:columnCount="4"
+        android:rowCount="4"
+        app:layout_constraintBottom_toTopOf="@+id/back_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instruction_text"
+        tools:background="@android:color/white">
+
+        <!-- Grid tiles will be added programmatically -->
+        <!-- Tile 1 -->
+        <TextView
+            android:id="@+id/tile_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:background="#FF5722"
+            android:gravity="center"
+            android:text="●"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <!-- Tile 2 -->
+        <TextView
+            android:id="@+id/tile_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:background="#4CAF50"
+            android:gravity="center"
+            android:text="●"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <!-- Tile 3 -->
+        <TextView
+            android:id="@+id/tile_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:background="#2196F3"
+            android:gravity="center"
+            android:text="●"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <!-- Tile 4 -->
+        <TextView
+            android:id="@+id/tile_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:background="#FFC107"
+            android:gravity="center"
+            android:text="●"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <!-- Tile 5 -->
+        <TextView
+            android:id="@+id/tile_5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:background="#9C27B0"
+            android:gravity="center"
+            android:text="●"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <!-- Tile 6 -->
+        <TextView
+            android:id="@+id/tile_6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:background="#FF9800"
+            android:gravity="center"
+            android:text="●"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <!-- Tile 7 -->
+        <TextView
+            android:id="@+id/tile_7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:background="#795548"
+            android:gravity="center"
+            android:text="●"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <!-- Tile 8 -->
+        <TextView
+            android:id="@+id/tile_8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:background="#607D8B"
+            android:gravity="center"
+            android:text="●"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <!-- Tile 9 -->
+        <TextView
+            android:id="@+id/tile_9"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:background="#FF5722"
+            android:gravity="center"
+            android:text="●"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <!-- Tile 10 -->
+        <TextView
+            android:id="@+id/tile_10"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:background="#4CAF50"
+            android:gravity="center"
+            android:text="●"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <!-- Tile 11 -->
+        <TextView
+            android:id="@+id/tile_11"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:background="#2196F3"
+            android:gravity="center"
+            android:text="●"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <!-- Tile 12 -->
+        <TextView
+            android:id="@+id/tile_12"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:background="#FFC107"
+            android:gravity="center"
+            android:text="●"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <!-- Tile 13 -->
+        <TextView
+            android:id="@+id/tile_13"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:background="#9C27B0"
+            android:gravity="center"
+            android:text="●"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <!-- Tile 14 -->
+        <TextView
+            android:id="@+id/tile_14"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:background="#FF9800"
+            android:gravity="center"
+            android:text="●"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <!-- Tile 15 -->
+        <TextView
+            android:id="@+id/tile_15"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:background="#795548"
+            android:gravity="center"
+            android:text="●"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <!-- Tile 16 -->
+        <TextView
+            android:id="@+id/tile_16"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:background="#607D8B"
+            android:gravity="center"
+            android:text="●"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Back to Menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
